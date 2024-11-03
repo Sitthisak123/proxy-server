@@ -22,8 +22,8 @@ const TEMP_VAR = {
   __VIEWSTATE: '/wEPDwUKMjEwOTcwMDg2N2RkZfX3x16ynxIkuAu6/myBQhuMOgo=',
   __VIEWSTATEGENERATOR: 'C2EE9ABB',
   __EVENTVALIDATION: '/wEWBALX+LPxBALB2tiHDgLKw6LdBQLHyfnnAgn7xIzePhsiuCSgVq8YdaOuFJW/',
-  txtUser: '66122420321',
-  txtPass: '07022544',
+  // txtUser: '',
+  // txtPass: '',
   btLogin: 'เข้าสู่ระบบ',
 }
 
@@ -55,12 +55,14 @@ app.use((req, res, next) => {
 // axios.defaults.headers.common[""] = "";
 
 
-app.get("/auth", async (req, res) => {
+app.post("/auth", async (req, res) => {
   try {
     const clientIp = req.headers['x-forwarded-for'] || req.ip || req.connection.remoteAddress
+    const { txtPass, txtUser } = req.body
+    console.log(req.body)
     console.log("auth ->: " + TEMP_HOST.TARGET_AUTH_URL);
     const response = await axios.post(TEMP_HOST.TARGET_AUTH_URL,
-      { ...TEMP_VAR },
+      { ...TEMP_VAR, txtPass, txtUser },
       {
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
@@ -84,16 +86,17 @@ app.get("/auth", async (req, res) => {
       const SSID = response.headers['set-cookie'][0].split(';')[0];
       const responseData = response.data;
       console.log(`send SSID: ${SSID} -> ${clientIp}`)
+      // console.log(responseData);
       if (responseData.includes("alert('รหัสผ่านไม่ถูกต้อง')")) {
         console.warn("รหัสผ่านไม่ถูกต้อง");
-        return res.status(401).json({ msg: "รหัสผ่านไม่ถูกต้อง"});
-      } else if (responseData.includes("<meta http-equiv='refresh' content='0; url=login.aspx'>")) {
+        return res.status(401).json({ msg: "รหัสผ่านไม่ถูกต้อง" });
+      } else if (responseData.includes("<meta http-equiv='refresh' content='0; url=Default.aspx'><meta http-equiv='refresh' content='0; url=Default.aspx'>")) {
         console.log("Auth Success!")
         return res.status(200).json({ msg: "Auth Success!", SSID });
       } else {
         resMsg = "Auth Failed! [*Target changed]"
         console.error("Auth Failed! [*Target changed]");
-        return res.status(403).json({ msg: "Auth Failed! [*Target changed]"});
+        return res.status(403).json({ msg: "Auth Failed! [*Target changed]" });
       }
     } catch (error) {
       console.error('Error details:', error);
@@ -116,8 +119,8 @@ app.get("/grades", async (req, res) => {
       timeout: 7000,
     });
 
-    // console.log("UID:",SSID);
-    console.log(response.data);
+    console.log("UID:", SSID);
+    // console.log(response.data);
 
     res.status(200).send(response.data);
 
