@@ -59,8 +59,8 @@ app.post("/auth", async (req, res) => {
   try {
     const clientIp = req.headers['x-forwarded-for'] || req.ip || req.connection.remoteAddress
     const { txtPass, txtUser } = req.body
-    console.log(req.body)
-    console.log("auth ->: " + TEMP_HOST.TARGET_AUTH_URL);
+    // console.log(req.body.txtUser)
+    // console.log("auth ->: " + TEMP_HOST.TARGET_AUTH_URL);
     const response = await axios.post(TEMP_HOST.TARGET_AUTH_URL,
       { ...TEMP_VAR, txtPass, txtUser },
       {
@@ -85,7 +85,7 @@ app.post("/auth", async (req, res) => {
     try {
       const SSID = response.headers['set-cookie'][0].split(';')[0];
       const responseData = response.data;
-      console.log(`send SSID: ${SSID} -> ${clientIp}`)
+      // console.log(`send SSID: ${SSID} -> ${clientIp}`)
       // console.log(responseData);
       if (responseData.includes("alert('รหัสผ่านไม่ถูกต้อง')")) {
         console.warn("รหัสผ่านไม่ถูกต้อง");
@@ -120,13 +120,13 @@ app.get("/grades", async (req, res) => {
     });
 
     console.log("UID:", SSID);
-    // console.log(response.data);
+    console.log(response.data);
 
-    res.status(200).send(response.data);
+    return res.status(200).send(response.data);
 
   } catch (error) {
     console.error('Error details:', error);
-    res.status(500).json({ error: 'Internal Server Error' });
+    return res.status(500).json({ error: 'Internal Server Error' });
   }
 });
 
