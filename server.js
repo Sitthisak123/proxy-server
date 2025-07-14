@@ -201,7 +201,7 @@ app.get("*", async (req, res) => {
   }
 });
 // Start the server
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 10000;
 const HOST = process.env.HOST || "192.168.1.103";
 server.listen(PORT, HOST, () => {
   console.log(`Server listening on ->\t${HOST}:${PORT}`);
