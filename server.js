@@ -34,6 +34,14 @@ const TEMP_VAR_CHECKTABLES = {
   //ddTerm: ''
 }
 
+const TEMP_VAR_CHECKTEST = {
+  __VIEWSTATE: "/wEPDwUKMTM0OTAyNjA0Mg9kFgICAw9kFgYCAQ9kFhICAQ8PFgIeBFRleHQFCzY2MTIyNDIwMzIxZGQCAw8PFgIfAAVA4LiZ4Liy4Lii4Liq4Li04LiX4LiY4Li04Lio4Lix4LiB4LiU4Li04LmMIOC5gOC4l+C4nuC4reC4suC4qeC4smRkAgUPDxYGHwAFQuC5gOC4o+C4teC4ouC4meC4ouC4seC4h+C5hOC4oeC5iOC4hOC4o+C4muC4q+C4peC4seC4geC4quC4ueC4leC4ox4IQ3NzQ2xhc3MFC0RlZmF1bHRCb2xkHgRfIVNCAgJkZAIHDw8WBh8ABXjguKLguLHguIfguYTguKHguYjguYTguJTguYnguJXguKPguKfguIjguYLguITguKPguIfguKrguKPguYnguLLguIfguKvguKXguLHguIHguKrguLnguJXguKPguIjguJrguIHguLLguKPguKjguLbguIHguKnguLIfAQULRGVmYXVsdEJvbGQfAgICZGQCCQ8PFgIfAGVkZAILDw8WAh8AZWRkAg0PDxYCHwAFMOC4ouC4seC4h+C5hOC4oeC5iOC4o+C4sOC4muC4uOC4p+C4seC4meC4l+C4teC5iGRkAg8PDxYCHwBlZGQCEw8PFgIfAAUac3RkLjY2MTIyNDIwMzIxQHVicnUuYWMudGhkZAICDxBkEBUcG+C5gOC4peC4t+C4reC4geC5gOC4l+C4reC4oQYxLzI1NjYGMi8yNTY2BjMvMjU2NgYxLzI1NjcGMi8yNTY3BjMvMjU2NwYxLzI1NjgGMi8yNTY4BjMvMjU2OAYxLzI1NjkGMi8yNTY5BjMvMjU2OQYxLzI1NzAGMi8yNTcwBjMvMjU3MAYxLzI1NzEGMi8yNTcxBjMvMjU3MQYxLzI1NzIGMi8yNTcyBjMvMjU3MgYxLzI1NzMGMi8yNTczBjMvMjU3MwYxLzI1NzQGMi8yNTc0BjMvMjU3NBUcAS0EMS82NgQyLzY2BDMvNjYEMS82NwQyLzY3BDMvNjcEMS82OAQyLzY4BDMvNjgEMS82OQQyLzY5BDMvNjkEMS83MAQyLzcwBDMvNzAEMS83MQQyLzcxBDMvNzEEMS83MgQyLzcyBDMvNzIEMS83MwQyLzczBDMvNzMEMS83NAQyLzc0BDMvNzQUKwMcZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2RkAgQPPCsADQBkGAEFA2Rndg9nZNvwDkJ/r2fLACLSbovaT25QNNne",
+  __VIEWSTATEGENERATOR: 'B9F5F603',
+  __EVENTVALIDATION: '/wEWHgKLzoHzCQLJv9qVBgKB9byYAgKA9byYAgKD9byYAgKB9cjzCgKA9cjzCgKD9cjzCgKB9ZSkCAKA9ZSkCAKD9ZSkCAKB9aB/AoD1oH8Cg/WgfwKs3pLgDQKv3pLgDQKu3pLgDQKs3r67BAKv3r67BAKu3r67BAKs3sqeDwKv3sqeDwKu3sqeDwKs3tbxBwKv3tbxBwKu3tbxBwKs3uLUDgKv3uLUDgKu3uLUDgLHsdCoDDOQcskFPc5Lq6MGqnATaBRJaHiw',
+  btSearch: "ค้นหาตารางสอบ",
+  //ddTerm: ''
+}
+
 //Target configs
 const TARGET_POTOCOL = 'https';
 const TARGET_HOST = 'reg.ubru.ac.th';
@@ -46,6 +54,7 @@ const TEMP_HOST = {
   TARGET_DEFAULT_URL: `${TARGET_BASE_URL}/default.aspx`,
   TARGET_GRADES_URL: `${TARGET_BASE_URL}/grade.aspx`,
   TARGET_CHECKTABLES_URL: `${TARGET_BASE_URL}/checktables.aspx`,
+  TARGET_CHECKTEST_URL: `${TARGET_BASE_URL}/checktest.aspx`,
 }
 
 
@@ -61,13 +70,13 @@ app.use((req, res, next) => {
 });
 // axios.defaults.headers.common[""] = "";
 
-
+// 001
 app.post("/auth", async (req, res) => {
   try {
     const clientIp = req.headers['x-forwarded-for'] || req.ip || req.connection.remoteAddress
     const { txtPass, txtUser } = req.body
     // console.log(req.body.txtUser)
-    // console.log("auth ->: " + TEMP_HOST.TARGET_AUTH_URL);
+    console.log("auth ->: " + TEMP_HOST.TARGET_AUTH_URL);
     const response = await axios.post(TEMP_HOST.TARGET_AUTH_URL,
       { ...TEMP_VAR_AUTH, txtPass, txtUser },
       {
@@ -115,6 +124,7 @@ app.post("/auth", async (req, res) => {
   }
 });
 
+// 002
 app.get("/grades", async (req, res) => {
   try {
     const SSID = req.headers.ssid;
@@ -135,6 +145,7 @@ app.get("/grades", async (req, res) => {
   }
 });
 
+// 003
 app.get("/checktables", async (req, res) => {
   try {
     const SSID = req.headers.ssid;
@@ -159,6 +170,7 @@ app.get("/checktables", async (req, res) => {
         timeout: 7000,
       }
     );
+    console.log(response)
     console.log("term:", ddTerm || "noTerm");
     const data = response.data;
 
@@ -172,6 +184,50 @@ app.get("/checktables", async (req, res) => {
     return res.status(200).send(data);
   } catch (error) {
     console.error('Error details:', error.message);
+    return res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+// 004
+app.get("/checktest", async (req, res) => {
+  try {
+    const SSID = req.headers.ssid;
+    const ddTerm = req.headers.ddterm || false;
+
+    if (!SSID) {
+      return res.status(400).json({ error: 'Missing SSID in header' });
+    }
+
+    console.log("checktables -> SSID:", SSID, "ddterm ->", ddTerm);
+    const response = await axios.get(
+      TEMP_HOST.TARGET_CHECKTEST_URL,
+      {
+        params: {
+          ...TEMP_VAR_CHECKTEST,
+          ...(ddTerm ? { ddTerm } : {})
+        },
+        headers: {
+          "Cookie": SSID,
+        },
+        timeout: 7000,
+      }
+    );
+    // console.log(response);
+    console.log("term:", ddTerm || "noTerm");
+    const data = response.data;
+    console.log(data);
+    // Check for specific alert text in the HTML response
+    // if (data.includes("alert('ไม่พบข้อมูลตารางสอบ')")) {
+    //   console.warn("ไม่พบข้อมูลตารางสอบ");
+    //   return res.status(404).send("ไม่พบข้อมูลตารางสอบ");
+    // }
+
+    // Send the raw HTML
+    return res.status(200).send(data);
+  } catch (error) {
+    console.error('Error code: 004 details:', error.message);
+    console.log(error.response.data);
+    // console.log(error);
     return res.status(500).json({ error: 'Internal Server Error' });
   }
 });
@@ -202,7 +258,7 @@ app.get("*", async (req, res) => {
 });
 // Start the server
 const PORT = process.env.PORT || 10000;
-const HOST = process.env.HOST || "192.168.1.103";
+const HOST = process.env.HOST || "192.168.1.95";
 server.listen(PORT, () => {
   console.log(`Server listening on ->\t${HOST}:${PORT}`);
 });
