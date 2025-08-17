@@ -108,7 +108,7 @@ app.post("/auth", async (req, res) => {
         return res.status(401).json({ msg: "รหัสผ่านไม่ถูกต้อง" });
       } else if (responseData.includes("<meta http-equiv='refresh' content='0; url=Default.aspx'><meta http-equiv='refresh' content='0; url=Default.aspx'>")) {
         console.log("Auth Success!")
-        return res.status(200).json({ msg: "Auth Success!", SSID });
+        return res.status(200).json({ msg: "Auth Success!", SSID, HTML: responseData });
       } else {
         resMsg = "Auth Failed! [*Target changed]"
         console.error("Auth Failed! [*Target changed]");
@@ -150,12 +150,15 @@ app.get("/checktables", async (req, res) => {
   try {
     const SSID = req.headers.ssid;
     const ddTerm = req.headers.ddterm || false;
-
+    const __VIEWSTATE = req.headers.__viewstate;
+    const __VIEWSTATEGENERATOR = req.headers.__viewstategenerator;
+    const __EVENTVALIDATION = req.headers.__eventvalidation;
+    console.log(__VIEWSTATE);
+    console.log("term:", ddTerm || "noTerm");
     if (!SSID) {
       return res.status(400).json({ error: 'Missing SSID header' });
     }
 
-    console.log("checktables -> SSID:", SSID);
 
     const response = await axios.get(
       TEMP_HOST.TARGET_CHECKTABLES_URL,
@@ -166,12 +169,12 @@ app.get("/checktables", async (req, res) => {
         },
         headers: {
           "Cookie": SSID,
+          "Content-Type": "application/x-www-form-urlencoded",
         },
         timeout: 7000,
       }
     );
-    console.log(response)
-    console.log("term:", ddTerm || "noTerm");
+
     const data = response.data;
 
     // Check for specific alert text in the HTML response
@@ -183,7 +186,7 @@ app.get("/checktables", async (req, res) => {
     // Send the raw HTML
     return res.status(200).send(data);
   } catch (error) {
-    console.error('Error details:', error.message);
+    console.error('Error code: 003 details:', error.message);
     return res.status(500).json({ error: 'Internal Server Error' });
   }
 });
@@ -226,8 +229,6 @@ app.get("/checktest", async (req, res) => {
     return res.status(200).send(data);
   } catch (error) {
     console.error('Error code: 004 details:', error.message);
-    console.log(error.response.data);
-    // console.log(error);
     return res.status(500).json({ error: 'Internal Server Error' });
   }
 });
@@ -258,9 +259,9 @@ app.get("*", async (req, res) => {
 });
 // Start the server
 const PORT = process.env.PORT || 10000;
-const HOST = process.env.HOST || "192.168.1.95";
+const HOST = process.env.HOST || "192.168.1.105";
 server.listen(PORT, () => {
-  console.log(`Server listening on ->\t${HOST}:${PORT}`);
+  console.log(`Server listening on ->\tHOST:${PORT}`);
 });
 
 
