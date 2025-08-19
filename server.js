@@ -216,9 +216,10 @@ app.get("/checktest", async (req, res) => {
       }
     );
     // console.log(response);
-    console.log("term:", ddTerm || "noTerm");
+    // console.log("term:", ddTerm || "noTerm");
     const data = response.data;
-    console.log(data);
+    // console.log(data);
+
     // Check for specific alert text in the HTML response
     // if (data.includes("alert('ไม่พบข้อมูลตารางสอบ')")) {
     //   console.warn("ไม่พบข้อมูลตารางสอบ");
