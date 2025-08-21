@@ -41,6 +41,21 @@ const TEMP_VAR_CHECKTEST = {
   btSearch: "ค้นหาตารางสอบ",
   //ddTerm: ''
 }
+const TEMP_VAR_CHECKPLAN1 = {
+  __VIEWSTATE: '/wEPDwUKMTg4NjMwNTU3NA9kFgICAw9kFgYCAQ9kFhICAQ8PFgIeBFRleHQFCzY2MTIyNDIwMzIxZGQCAw8PFgIfAAVA4LiZ4Liy4Lii4Liq4Li04LiX4LiY4Li04Lio4Lix4LiB4LiU4Li04LmMIOC5gOC4l+C4nuC4reC4suC4qeC4smRkAgUPDxYGHwAFQuC5gOC4o+C4teC4ouC4meC4ouC4seC4h+C5hOC4oeC5iOC4hOC4o+C4muC4q+C4peC4seC4geC4quC4ueC4leC4ox4IQ3NzQ2xhc3MFC0RlZmF1bHRCb2xkHgRfIVNCAgJkZAIHDw8WBh8ABXjguKLguLHguIfguYTguKHguYjguYTguJTguYnguJXguKPguKfguIjguYLguITguKPguIfguKrguKPguYnguLLguIfguKvguKXguLHguIHguKrguLnguJXguKPguIjguJrguIHguLLguKPguKjguLbguIHguKnguLIfAQULRGVmYXVsdEJvbGQfAgICZGQCCQ8PFgIfAGVkZAILDw8WAh8AZWRkAg0PDxYCHwAFMOC4ouC4seC4h+C5hOC4oeC5iOC4o+C4sOC4muC4uOC4p+C4seC4meC4l+C4teC5iGRkAg8PDxYCHwBlZGQCEw8PFgIfAAUac3RkLjY2MTIyNDIwMzIxQHVicnUuYWMudGhkZAICDxBkEBUcG+C5gOC4peC4t+C4reC4geC5gOC4l+C4reC4oQYxLzI1NjYGMi8yNTY2BjMvMjU2NgYxLzI1NjcGMi8yNTY3BjMvMjU2NwYxLzI1NjgGMi8yNTY4BjMvMjU2OAYxLzI1NjkGMi8yNTY5BjMvMjU2OQYxLzI1NzAGMi8yNTcwBjMvMjU3MAYxLzI1NzEGMi8yNTcxBjMvMjU3MQYxLzI1NzIGMi8yNTcyBjMvMjU3MgYxLzI1NzMGMi8yNTczBjMvMjU3MwYxLzI1NzQGMi8yNTc0BjMvMjU3NBUcAS0EMS82NgQyLzY2BDMvNjYEMS82NwQyLzY3BDMvNjcEMS82OAQyLzY4BDMvNjgEMS82OQQyLzY5BDMvNjkEMS83MAQyLzcwBDMvNzAEMS83MQQyLzcxBDMvNzEEMS83MgQyLzcyBDMvNzIEMS83MwQyLzczBDMvNzMEMS83NAQyLzc0BDMvNzQUKwMcZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2RkAgQPPCsADQBkGAEFA2Rndg9nZGfXY17PUKgnmeiSEmIMvgCZsxjk',
+  __VIEWSTATEGENERATOR: '63612CFA',
+  __EVENTVALIDATION: '/wEWHgK0s4qZDQLJv9qVBgKB9byYAgKA9byYAgKD9byYAgKB9cjzCgKA9cjzCgKD9cjzCgKB9ZSkCAKA9ZSkCAKD9ZSkCAKB9aB/AoD1oH8Cg/WgfwKs3pLgDQKv3pLgDQKu3pLgDQKs3r67BAKv3r67BAKu3r67BAKs3sqeDwKv3sqeDwKu3sqeDwKs3tbxBwKv3tbxBwKu3tbxBwKs3uLUDgKv3uLUDgKu3uLUDgLHsdCoDHuDpmKnUyqh1FeivdfFo7U3Ug95',
+  btSearch: "ค้นหาแผนการเรียน",
+  //ddTerm: ''
+}
+
+const TEMP_VAR_CHECKPLAN2 = {
+  __VIEWSTATE: "/wEPDwUKMTg4NjMwNTU3NA9kFgICAw9kFggCAQ9kFhICAQ8PFgIeBFRleHQFCzY2MTIyNDIwMzIxZGQCAw8PFgIfAAVA4LiZ4Liy4Lii4Liq4Li04LiX4LiY4Li04Lio4Lix4LiB4LiU4Li04LmMIOC5gOC4l+C4nuC4reC4suC4qeC4smRkAgUPDxYGHwAFQuC5gOC4o+C4teC4ouC4meC4ouC4seC4h+C5hOC4oeC5iOC4hOC4o+C4muC4q+C4peC4seC4geC4quC4ueC4leC4ox4IQ3NzQ2xhc3MFC0RlZmF1bHRCb2xkHgRfIVNCAgJkZAIHDw8WBh8ABXjguKLguLHguIfguYTguKHguYjguYTguJTguYnguJXguKPguKfguIjguYLguITguKPguIfguKrguKPguYnguLLguIfguKvguKXguLHguIHguKrguLnguJXguKPguIjguJrguIHguLLguKPguKjguLbguIHguKnguLIfAQULRGVmYXVsdEJvbGQfAgICZGQCCQ8PFgIfAGVkZAILDw8WAh8AZWRkAg0PDxYCHwAFMOC4ouC4seC4h+C5hOC4oeC5iOC4o+C4sOC4muC4uOC4p+C4seC4meC4l+C4teC5iGRkAg8PDxYCHwBlZGQCEw8PFgIfAAUac3RkLjY2MTIyNDIwMzIxQHVicnUuYWMudGhkZAICDxBkEBUcG+C5gOC4peC4t+C4reC4geC5gOC4l+C4reC4oQYxLzI1NjYGMi8yNTY2BjMvMjU2NgYxLzI1NjcGMi8yNTY3BjMvMjU2NwYxLzI1NjgGMi8yNTY4BjMvMjU2OAYxLzI1NjkGMi8yNTY5BjMvMjU2OQYxLzI1NzAGMi8yNTcwBjMvMjU3MAYxLzI1NzEGMi8yNTcxBjMvMjU3MQYxLzI1NzIGMi8yNTcyBjMvMjU3MgYxLzI1NzMGMi8yNTczBjMvMjU3MwYxLzI1NzQGMi8yNTc0BjMvMjU3NBUcAS0EMS82NgQyLzY2BDMvNjYEMS82NwQyLzY3BDMvNjcEMS82OAQyLzY4BDMvNjgEMS82OQQyLzY5BDMvNjkEMS83MAQyLzcwBDMvNzAEMS83MQQyLzcxBDMvNzEEMS83MgQyLzcyBDMvNzIEMS83MwQyLzczBDMvNzMEMS83NAQyLzc0BDMvNzQUKwMcZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2RkAgQPPCsADQEADxYEHgtfIURhdGFCb3VuZGceC18hSXRlbUNvdW50ZmRkAgUPDxYEHwAFY+C5hOC4oeC5iOC4nuC4muC4guC5ieC4reC4oeC4ueC4peC5geC4nOC4meC4geC4suC4o+C5gOC4o+C4teC4ouC4meC4l+C4teC5iOC4l+C5iOC4suC4meC4o+C4sOC4muC4uB4HVmlzaWJsZWdkZBgBBQNkZ3YPPCsACgEIZmRrV8BPxJO3k7dkJLElLOPutUfEow==",
+  __VIEWSTATEGENERATOR: '63612CFA',
+  __EVENTVALIDATION: '/wEWHgLX67PeBALJv9qVBgKB9byYAgKA9byYAgKD9byYAgKB9cjzCgKA9cjzCgKD9cjzCgKB9ZSkCAKA9ZSkCAKD9ZSkCAKB9aB/AoD1oH8Cg/WgfwKs3pLgDQKv3pLgDQKu3pLgDQKs3r67BAKv3r67BAKu3r67BAKs3sqeDwKv3sqeDwKu3sqeDwKs3tbxBwKv3tbxBwKu3tbxBwKs3uLUDgKv3uLUDgKu3uLUDgLHsdCoDJu5KGGxkoWNgboPbqa2FKLlOfFU',
+  btSearch: "ค้นหาแผนการเรียน",
+  //ddTerm: ''
+}
 
 //Target configs
 const TARGET_POTOCOL = 'https';
@@ -55,6 +70,7 @@ const TEMP_HOST = {
   TARGET_GRADES_URL: `${TARGET_BASE_URL}/grade.aspx`,
   TARGET_CHECKTABLES_URL: `${TARGET_BASE_URL}/checktables.aspx`,
   TARGET_CHECKTEST_URL: `${TARGET_BASE_URL}/checktest.aspx`,
+  TARGET_CHECKPLAN_URL: `${TARGET_BASE_URL}/plan.aspx`,
 }
 
 
@@ -150,10 +166,6 @@ app.get("/checktables", async (req, res) => {
   try {
     const SSID = req.headers.ssid;
     const ddTerm = req.headers.ddterm || false;
-    const __VIEWSTATE = req.headers.__viewstate;
-    const __VIEWSTATEGENERATOR = req.headers.__viewstategenerator;
-    const __EVENTVALIDATION = req.headers.__eventvalidation;
-    console.log(__VIEWSTATE);
     console.log("term:", ddTerm || "noTerm");
     if (!SSID) {
       return res.status(400).json({ error: 'Missing SSID header' });
@@ -230,6 +242,42 @@ app.get("/checktest", async (req, res) => {
     return res.status(200).send(data);
   } catch (error) {
     console.error('Error code: 004 details:', error.message);
+    return res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+// 005
+app.get("/checkplan", async (req, res) => {
+  try {
+    const SSID = req.headers.ssid || false;
+    const ddTerm = req.headers.ddterm || false;
+    const sep = req.headers.sep || false;
+    if (!SSID) {
+      return res.status(400).json({ error: 'Missing SSID in header' });
+    }
+
+    console.log("checkplan -> SSID:", SSID, "ddterm ->", ddTerm, "sep ->", sep);
+
+    const response = await axios.get(
+      TEMP_HOST.TARGET_CHECKPLAN_URL,
+      {
+        params: {
+          ...TEMP_VAR_CHECKPLAN1,
+          ...(ddTerm ? { ddTerm } : {})
+        },
+        headers: {
+          "Cookie": SSID,
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        timeout: 7000,
+      }
+    );
+    const data = response.data;
+
+    // Send the raw HTML
+    return res.status(200).send(data);
+  } catch (error) {
+    console.error('Error code: 005 details:', error.message);
     return res.status(500).json({ error: 'Internal Server Error' });
   }
 });
