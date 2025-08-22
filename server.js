@@ -251,12 +251,11 @@ app.get("/checkplan", async (req, res) => {
   try {
     const SSID = req.headers.ssid || false;
     const ddTerm = req.headers.ddterm || false;
-    const sep = req.headers.sep || false;
     if (!SSID) {
       return res.status(400).json({ error: 'Missing SSID in header' });
     }
 
-    console.log("checkplan -> SSID:", SSID, "ddterm ->", ddTerm, "sep ->", sep);
+    console.log("checkplan -> SSID:", SSID, "ddterm ->", ddTerm);
 
     const response = await axios.get(
       TEMP_HOST.TARGET_CHECKPLAN_URL,
