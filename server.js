@@ -166,7 +166,7 @@ app.get("/checktables", async (req, res) => {
   try {
     const SSID = req.headers.ssid;
     const ddTerm = req.headers.ddterm || false;
-    console.log("term:", ddTerm || "noTerm");
+    console.log("checktables:", ddTerm || "noTerm");
     if (!SSID) {
       return res.status(400).json({ error: 'Missing SSID header' });
     }
@@ -213,7 +213,7 @@ app.get("/checktest", async (req, res) => {
       return res.status(400).json({ error: 'Missing SSID in header' });
     }
 
-    console.log("checktables -> SSID:", SSID, "ddterm ->", ddTerm);
+    console.log("checktest -> SSID:", SSID, "ddterm ->", ddTerm);
     const response = await axios.get(
       TEMP_HOST.TARGET_CHECKTEST_URL,
       {
@@ -227,10 +227,7 @@ app.get("/checktest", async (req, res) => {
         timeout: 7000,
       }
     );
-    // console.log(response);
-    // console.log("term:", ddTerm || "noTerm");
     const data = response.data;
-    // console.log(data);
 
     // Check for specific alert text in the HTML response
     // if (data.includes("alert('ไม่พบข้อมูลตารางสอบ')")) {
