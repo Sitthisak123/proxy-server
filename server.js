@@ -304,9 +304,9 @@ app.get("*", async (req, res) => {
 });
 // Start the server
 const PORT = process.env.PORT || 10000;
-const HOST = process.env.HOST || "192.168.1.105";
+const HOST = process.env.HOST || "192.168.1.120";
 server.listen(PORT, () => {
-  console.log(`Server listening on ->\tHOST:${PORT}`);
+  console.log(`Server listening on ->\t ${HOST}:${PORT}`);
 });
 
 
